@@ -11,5 +11,14 @@ import "../styles/index.scss";
 //import your own components
 import { Home } from "./component/home.js";
 
-//render your react application
-ReactDOM.render(<Home />, document.querySelector("#app"));
+import { SimpleCounter } from "./component/home.js";
+
+let counter = 0;
+
+setInterval(function() {
+	ReactDOM.render(
+		<SimpleCounter seconds={counter} />,
+		document.getElementById("app")
+	);
+	counter += 1;
+}, 1000);
